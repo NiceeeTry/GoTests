@@ -1,9 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"hello/mock"
+	"os"
+	"time"
+)
 
 func main() {
-	fmt.Println(Hello(""))
+	// fmt.Println(Hello(""))
+	sleeper := &mock.ConfigurableSleeper{1 * time.Second, time.Sleep}
+	mock.Countdown(os.Stdout, sleeper)
 }
 
 const prefixHello = "Hello, "
